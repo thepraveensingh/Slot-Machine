@@ -18,18 +18,38 @@ import SlotM from './components/SlotM'
 //     </>
 //   )
 // }
+///////////////////////////////////////////////
+// function App(){
+  
+//   return<>
+//     <h1 className='text-3xl'>Welcome to <span className='text-blue-700 text-4xl font-bold'>Slot Machine Game</span> 🎰</h1>
+//     <div className='shadow-md shadow-slate-500 m-4'>
+//       <SlotM x = '❤️' y = '❤️' z = '❤️'/>
+//       {/* <hr/> for giving line at end of slotM */}
+//       <SlotM x = '❤️' y = '❤️' z = '💚'/>
+//       <SlotM x = '❤️' y = '💙' z = '❤️'/>
+//     </div>
+    
+//   </>
+// }
+///////////////////////////////////////////////
 function App(){
+  const emojiArray = ['🍎', '🍌', '🍒', '🍇', '🍉'];
 
+  const getRandomEmoji = () => {
+    return emojiArray[Math.floor(Math.random()*(emojiArray.length))];
+  }
+  let x = getRandomEmoji();
+  let y = getRandomEmoji();
+  let z = getRandomEmoji ();
   return<>
     <h1 className='text-3xl'>Welcome to <span className='text-blue-700 text-4xl font-bold'>Slot Machine Game</span> 🎰</h1>
     <div className='shadow-md shadow-slate-500 m-4'>
-      <SlotM x = '❤️' y = '❤️' z = '❤️'/>
+      <SlotM x = {x} y = {y} z = {z}/>
       {/* <hr/> for giving line at end of slotM */}
-      <SlotM x = '❤️' y = '❤️' z = '💚'/>
-      <SlotM x = '❤️' y = '💙' z = '❤️'/>
+
     </div>
     
   </>
 }
-
 export default App;
