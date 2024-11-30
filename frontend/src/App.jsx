@@ -33,23 +33,78 @@ import SlotM from './components/SlotM'
 //   </>
 // }
 ///////////////////////////////////////////////
-function App(){
-  const emojiArray = ['🍎', '🍌', '🍒', '🍇', '🍉'];
+// function App(){
+  
+//   const emojiArray = ['🍎', '🍌', '🍒', '🍇', '🍉'];
+  
+//   const getRandomEmoji = () => {
+//     return emojiArray[Math.floor(Math.random()*(emojiArray.length))];
+//   }
+//   let x = getRandomEmoji();
+//   let y = getRandomEmoji();
+//   let z = getRandomEmoji ();
 
-  const getRandomEmoji = () => {
-    return emojiArray[Math.floor(Math.random()*(emojiArray.length))];
-  }
-  let x = getRandomEmoji();
-  let y = getRandomEmoji();
-  let z = getRandomEmoji ();
-  return<>
-    <h1 className='text-3xl'>Welcome to <span className='text-blue-700 text-4xl font-bold'>Slot Machine Game</span> 🎰</h1>
-    <div className='shadow-md shadow-slate-500 m-4'>
-      <SlotM x = {x} y = {y} z = {z}/>
-      {/* <hr/> for giving line at end of slotM */}
+  
+//   useEffect(()=>{
 
-    </div>
+//   },[]);
+//   const handleClick = () =>{
     
-  </>
+//   }
+
+//   return<>
+//     <h1 className='text-3xl'>Welcome to <span className='text-blue-700 text-4xl font-bold'>Slot Machine Game</span> 🎰</h1>
+//     <div className='shadow-md shadow-slate-500 m-4'>
+//       <SlotM x = {x} y = {y} z = {z}/>
+//       {/* <hr/> for giving line at end of slotM */}
+//     </div>
+//     <button className='bg-green-500 px-4 py-2 shadow-md shadow-black' onClick={handleClick}>Play</button>
+    
+//   </>
+// }
+// export default App;
+
+///////////////////////////////////////////////////
+function App() {
+  const emojiArray = ['🍎', '🍌','🍇', ];
+  const getRandomEmoji = () => {
+    return emojiArray[Math.floor(Math.random() * emojiArray.length)];
+  };
+  const [emojis, setEmojis] = useState({
+    x: getRandomEmoji(),
+    y: getRandomEmoji(),
+    z: getRandomEmoji(),
+  });
+  
+  const handleClick = () => {
+    setEmojis({
+      x: getRandomEmoji(),
+      y: getRandomEmoji(),
+      z: getRandomEmoji(),
+    });
+  };
+
+  return (
+    <>
+      <h1 className="text-3xl">
+        Welcome to{' '}
+        <span className="text-blue-700 text-4xl font-bold">
+          Slot Machine Game
+        </span>{' '}
+        🎰
+      </h1>
+      <div className="shadow-md shadow-slate-500 m-4">
+        <SlotM x={emojis.x} y={emojis.y} z={emojis.z} />
+        {/* <hr/> for giving line at end of SlotM */}
+      </div>
+      <button
+        className="bg-green-500 px-4 py-2 shadow-md shadow-black"
+        onClick={handleClick}
+      >
+        Play
+      </button>
+    </>
+  );
 }
+
 export default App;
